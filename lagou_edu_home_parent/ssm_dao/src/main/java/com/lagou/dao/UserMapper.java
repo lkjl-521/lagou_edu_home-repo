@@ -52,10 +52,16 @@ public interface UserMapper {
     
     public List<Resource> findResourceByRoleId2(List<Integer> ids);
 
-    public List<Resource> findResourceByRoleId3(List<Integer> ids);
+
     public List<Resource> findResourceByRoleId4(List<Integer> ids);
     public List<Resource> findResourceByRoleId5(List<Integer> ids);
     public List<Resource> findResourceByRoleId6(List<Integer> ids);
     public List<Resource> findResourceByRoleId7(List<Integer> ids);
     public List<Resource> findResourceByRoleId8(List<Integer> ids);
+    public List<Resource> findResourceByRoleId3(List<Integer> ids);
+    public List<Resource> findResourceByRoleId41(List<Integer> ids);
+    public List<Resource> findResourceByRoleId51(List<Integer> ids);
+    public List<Resource> findResourceByRoleId61(List<Integer> ids);
+    public List<Resource> findResourceByRoleId71(List<Integer> ids);
+    public List<Resource> findResourceByRoleId81(List<Integer> ids);
 }
