@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <!-- 是否开启自动驼峰命名规则（camel case）映射，类似数据库字段名 test_name 对应实体对象属性名 testName  -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+
+    </settings>
+
+</configuration>

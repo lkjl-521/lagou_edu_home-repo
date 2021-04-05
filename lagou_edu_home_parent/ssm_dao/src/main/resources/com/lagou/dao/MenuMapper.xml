@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lagou.dao.MenuMapper">
+    <resultMap id="MenuResult" type="menu">
+        <id column="id" property="id"/>
+        <collection property="subMenuList" ofType="menu" column="id" select="findSubMenuListByPid"/>
+    </resultMap>
+    <select id="findSubMenuListByPid" parameterType="int" resultMap="MenuResult">
+        select * from menu where parent_id = #{id}
+    </select>
+
+    <!--   查询所有菜单信息 -->
+    <select id="findAllMenu" resultType="menu">
+        select * from menu
+    </select>
+
+    <!--  根据id查询 -->
+    <select id="findMenuById" parameterType="int" resultType="menu">
+        select * from menu where id = #{id}
+    </select>
+</mapper>
