@@ -1,9 +1,7 @@
 package com.lagou.service.impl;
 
 import com.lagou.dao.RoleMapper;
-import com.lagou.domain.Role;
-import com.lagou.domain.RoleMenuVO;
-import com.lagou.domain.Role_menu_relation;
+import com.lagou.domain.*;
 import com.lagou.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,9 +50,39 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
+    public List<ResourceCategory> findResourceListByRoleId(Integer roleId) {
+        List<ResourceCategory> resourceCategoryList = roleMapper.findResourceCategoryByRoleId(roleId);
+        for (ResourceCategory resourceCategory : resourceCategoryList) {
+            List<Resource> resourceList = roleMapper.findResourceList(roleId, resourceCategory.getId());
+            resourceCategory.setResourceList(resourceList);
+        }
+        return resourceCategoryList;
+    }
+
+    @Override
+    public void roleContextResource(RoleResourceVO roleResourceVO) {
+        // 清空中间表的关联关系
+        roleMapper.deleteRoleContextResource(roleResourceVO.getRoleId());
+
+        // 为角色分配菜单
+        Date date = new Date();
+        for (Integer integer : roleResourceVO.getResourceIdList()) {
+            Role_resource_relation rrr = new Role_resource_relation();
+            rrr.setResourceId(integer);
+            rrr.setRoleId(roleResourceVO.getRoleId());
+            rrr.setCreatedTime(date);
+            rrr.setUpdatedTime(date);
+            rrr.setCreatedBy("system");
+            rrr.setUpdatedBy("system");
+            roleMapper.roleContextResource(rrr);
+        }
+    }
+
+    @Override
     public void deleteRole(Integer roleId) {
         // 清空中间表关联关系
         roleMapper.deleteRoleContextMenu(roleId);
+        roleMapper.deleteRoleContextResource(roleId);
         // 删除角色
         roleMapper.deleteRole(roleId);
     }

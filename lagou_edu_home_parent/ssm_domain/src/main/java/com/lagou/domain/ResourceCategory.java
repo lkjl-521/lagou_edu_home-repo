@@ -1,6 +1,7 @@
 package com.lagou.domain;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 资源分类表
@@ -14,6 +15,17 @@ public class ResourceCategory {
     private Date updatedTime;
     private String createdBy;
     private String updatedBy;
+
+    // 添加一对多关联属性
+    private List<Resource> resourceList;
+
+    public List<Resource> getResourceList() {
+        return resourceList;
+    }
+
+    public void setResourceList(List<Resource> resourceList) {
+        this.resourceList = resourceList;
+    }
 
     public Integer getId() {
         return id;

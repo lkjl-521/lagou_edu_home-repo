@@ -1,5 +1,6 @@
 H:\JAVA\SSM_PROJECT\lagou_edu_home_parent\ssm_domain\src\main\java\com\lagou\domain\PromotionSpace.java
 H:\JAVA\SSM_PROJECT\lagou_edu_home_parent\ssm_domain\src\main\java\com\lagou\domain\PromotionAd.java
+H:\JAVA\SSM_PROJECT\lagou_edu_home_parent\ssm_domain\src\main\java\com\lagou\domain\RoleResourceVO.java
 H:\JAVA\SSM_PROJECT\lagou_edu_home_parent\ssm_domain\src\main\java\com\lagou\domain\ResourceVO.java
 H:\JAVA\SSM_PROJECT\lagou_edu_home_parent\ssm_domain\src\main\java\com\lagou\domain\Role.java
 H:\JAVA\SSM_PROJECT\lagou_edu_home_parent\ssm_domain\src\main\java\com\lagou\domain\Menu.java
@@ -13,6 +14,7 @@ H:\JAVA\SSM_PROJECT\lagou_edu_home_parent\ssm_domain\src\main\java\com\lagou\dom
 H:\JAVA\SSM_PROJECT\lagou_edu_home_parent\ssm_domain\src\main\java\com\lagou\domain\RoleMenuVO.java
 H:\JAVA\SSM_PROJECT\lagou_edu_home_parent\ssm_domain\src\main\java\com\lagou\domain\User.java
 H:\JAVA\SSM_PROJECT\lagou_edu_home_parent\ssm_domain\src\main\java\com\lagou\domain\User_Role_relation.java
+H:\JAVA\SSM_PROJECT\lagou_edu_home_parent\ssm_domain\src\main\java\com\lagou\domain\Role_resource_relation.java
 H:\JAVA\SSM_PROJECT\lagou_edu_home_parent\ssm_domain\src\main\java\com\lagou\domain\Test.java
 H:\JAVA\SSM_PROJECT\lagou_edu_home_parent\ssm_domain\src\main\java\com\lagou\domain\CourseLesson.java
 H:\JAVA\SSM_PROJECT\lagou_edu_home_parent\ssm_domain\src\main\java\com\lagou\domain\CourseVO.java

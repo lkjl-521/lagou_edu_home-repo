@@ -23,10 +23,37 @@
     <delete id="deleteRoleContextMenu" parameterType="int">
         delete from role_menu_relation where role_id = #{rid}
     </delete>
+    <delete id="deleteRoleContextResource" parameterType="int">
+        delete from role_resource_relation where role_id = #{rid}
+    </delete>
 
     <!--  为角色分配菜单  -->
     <insert id="roleContextMenu" parameterType="Role_menu_relation">
         insert into role_menu_relation values(null, #{menuId},#{roleId},#{createdTime},#{updatedTime},#{createdBy},#{updatedBy})
+    </insert>
+
+    <!--  根据角色id查询角色关联的资源分类信息  -->
+    <select id="findResourceCategoryByRoleId" parameterType="int" resultType="resourceCategory">
+        SELECT
+	        DISTINCT rc.*
+        FROM roles ro INNER JOIN role_resource_relation rr ON ro.`id` = rr.`role_id`
+        INNER JOIN resource re ON re.`id` = rr.`resource_id`
+        INNER JOIN resource_category rc ON rc.`id` = re.`category_id`
+        WHERE ro.`id` = #{id};
+    </select>
+
+    <!--  根据角色id查询角色关联的资源信息  -->
+    <select id="findResourceList" resultType="resource">
+        SELECT
+	        re.*
+        FROM roles ro INNER JOIN role_resource_relation rr ON ro.`id` = rr.`role_id`
+        INNER JOIN resource re ON re.`id` = rr.`resource_id`
+        WHERE ro.`id` = #{roleId} AND re.`category_id` = #{categoryId}
+    </select>
+
+    <!--  为角色分配资源信息  -->
+    <insert id="roleContextResource" parameterType="Role_resource_relation">
+        insert into role_resource_relation values(null, #{resourceId},#{roleId},#{createdTime},#{updatedTime},#{createdBy},#{updatedBy})
     </insert>
 
     <!-- 删除角色  -->
