@@ -24,4 +24,29 @@ public interface MenuMapper {
          根据id查询menu
     */
     public Menu findMenuById(Integer id);
+
+    /*
+        新增菜单
+     */
+    void saveMenu(Menu menu);
+
+    /*
+        修改菜单
+     */
+    void updateMenu(Menu menu);
+
+    /*
+        删除菜单
+     */
+    void deleteMenuById(Integer id);
+
+    /*
+        根据id查询子菜单
+     */
+    Integer findSubMenuId(Integer id);
+
+    /*
+        删除角色菜单表的相关关系
+     */
+    void deleteMenuContextRole(Integer menuId);
 }

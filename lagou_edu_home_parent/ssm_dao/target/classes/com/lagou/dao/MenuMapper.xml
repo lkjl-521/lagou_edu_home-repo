@@ -20,4 +20,64 @@
     <select id="findMenuById" parameterType="int" resultType="menu">
         select * from menu where id = #{id}
     </select>
+
+    <!--  新增菜单  -->
+    <insert id="saveMenu" parameterType="Menu">
+        insert into menu values(null, #{parentId}, #{href},#{icon}, #{name}, #{description},#{orderNum}, #{shown},
+        #{level},#{createdTime},#{updatedTime},#{createdBy},#{updatedBy})
+    </insert>
+    <!--  修改菜单  -->
+    <update id="updateMenu" parameterType="menu">
+        update menu
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="parentId != null and parentId != ''">
+                parent_id = #{parentId},
+            </if>
+            <if test="href != null and href != ''">
+                href = #{href},
+            </if>
+            <if test="icon != null">
+                icon = #{icon},
+            </if>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="description != null">
+                description = #{description},
+            </if>
+            <if test="orderNum != null and orderNum != ''">
+                order_num = #{orderNum},
+            </if>
+            <if test="shown != null and shown != ''">
+                shown = #{shown},
+            </if>
+            <if test="level != null and level != ''">
+                level = #{level},
+            </if>
+            <if test="updatedTime != null">
+                updated_time = #{updatedTime},
+            </if>
+            <if test="updatedBy != null">
+                updated_by = #{updatedBy},
+            </if>
+        </trim>
+        <where>
+            <if test="id != null and id != '' ">id = #{id}</if>
+        </where>
+    </update>
+
+    <!--  删除菜单  -->
+    <delete id="deleteMenuById" parameterType="int">
+        delete from menu where id = #{id}
+    </delete>
+
+    <!--  根据id查询子菜单数量  -->
+    <select id="findSubMenuId" parameterType="int" resultType="int">
+        select count(*) from menu where parent_id = #{id}
+    </select>
+
+    <!--   删除角色和菜单关联关系  -->
+    <delete id="deleteMenuContextRole" parameterType="int">
+        delete from role_menu_relation where menu_id = #{menuId}
+    </delete>
 </mapper>

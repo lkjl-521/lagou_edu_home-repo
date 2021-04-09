@@ -31,4 +31,27 @@ public class ResourceController {
 
         return  new ResponseResult(true, 200, "查询资源信息成功", allResourceByPage);
     }
+
+    /*
+        添加或修改资源
+     */
+    @RequestMapping("/saveOrUpdateResource")
+    public ResponseResult saveResource(@RequestBody Resource resource) {
+        if (resource.getId() == null) {
+            resourceService.saveResource(resource);
+            return new ResponseResult(true, 200, "新增成功", null);
+        } else {
+            resourceService.updateResource(resource);
+            return new ResponseResult(true, 200, "修改成功", null);
+        }
+    }
+
+    /*
+        删除资源
+     */
+    @RequestMapping("/deleteResource")
+    public ResponseResult deleteResource(Integer id) {
+        resourceService.deleteResource(id);
+        return new ResponseResult(true, 200, "删除成功", null);
+    }
 }

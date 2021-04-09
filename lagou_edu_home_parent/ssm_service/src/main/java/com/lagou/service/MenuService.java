@@ -1,6 +1,8 @@
 package com.lagou.service;
 
+import com.github.pagehelper.PageInfo;
 import com.lagou.domain.Menu;
+import com.lagou.domain.ResponseResult;
 
 import java.util.List;
 
@@ -18,10 +20,25 @@ public interface MenuService {
     /*
         查询所有菜单列表
      */
-    public List<Menu> findAllMenu();
+    public PageInfo<Menu> findAllMenu(Integer currentPage, Integer pageSize);
 
     /*
          根据id查询menu
     */
     public Menu findMenuById(Integer id);
+
+    /*
+        新增菜单
+     */
+    void saveMenu(Menu menu);
+
+    /*
+        修改菜单
+     */
+    void updateMenu(Menu menu);
+
+    /*
+        删除菜单
+     */
+    ResponseResult deleteMenu(Integer menuId);
 }

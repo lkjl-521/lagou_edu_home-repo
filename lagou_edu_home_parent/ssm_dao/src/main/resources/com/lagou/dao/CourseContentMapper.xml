@@ -91,4 +91,22 @@
         update course_section set status = #{status}, update_time = #{updateTime} where id = #{id}
     </update>
 
+    <!--  添加课时信息  -->
+    <insert id="saveLesson" parameterType="CourseLesson">
+        insert into Course_lesson
+            (id,course_id,section_id,theme,duration,is_free,order_num, create_time,update_time)
+            VALUES(#{id},#{courseId},#{sectionId},#{theme},#{duration},#{isFree},#{orderNum},#{createTime},#{updateTime});
+    </insert>
+
+    <!--  修改课时信息  -->
+    <update id="updateLesson" parameterType="CourseLesson">
+        update course_lesson set theme = #{theme}, duration = #{duration}, is_free = #{isFree},
+        order_num = #{orderNum}, update_time = #{updateTime} where id = #{id}
+    </update>
+
+    <!--  修改课时状态  -->
+    <update id="updateLessonStatus" parameterType="CourseLesson">
+        update course_lesson set status = #{status}, update_time =#{updateTime} where id  = #{id}
+    </update>
+
 </mapper>

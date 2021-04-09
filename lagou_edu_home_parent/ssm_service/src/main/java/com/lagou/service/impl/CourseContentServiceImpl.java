@@ -2,6 +2,7 @@ package com.lagou.service.impl;
 
 import com.lagou.dao.CourseContentMapper;
 import com.lagou.domain.Course;
+import com.lagou.domain.CourseLesson;
 import com.lagou.domain.CourseSection;
 import com.lagou.service.CourseContentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,5 +60,30 @@ public class CourseContentServiceImpl implements CourseContentService {
         cs.setUpdateTime(new Date());
 
         courseContentMapper.updateSectionStatus(cs);
+    }
+
+    @Override
+    public void saveLesson(CourseLesson courseLesson) {
+        Date date = new Date();
+        courseLesson.setCreateTime(date);
+        courseLesson.setUpdateTime(date);
+        courseContentMapper.saveLesson(courseLesson);
+    }
+
+    @Override
+    public void updateLesson(CourseLesson courseLesson) {
+        courseLesson.setUpdateTime(new Date());
+
+        courseContentMapper.updateLesson(courseLesson);
+    }
+
+    @Override
+    public void updateLessonStatus(int id, int status) {
+        CourseLesson courseLesson = new CourseLesson();
+        courseLesson.setId(id);
+        courseLesson.setStatus(status);
+        courseLesson.setUpdateTime(new Date());
+
+        courseContentMapper.updateLessonStatus(courseLesson);
     }
 }

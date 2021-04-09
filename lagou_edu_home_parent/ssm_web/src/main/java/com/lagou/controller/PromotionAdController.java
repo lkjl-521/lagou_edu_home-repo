@@ -64,4 +64,28 @@ public class PromotionAdController {
         ResponseResult responseResult = new ResponseResult(true, 200, "广告动态上下线更新成功", map);
         return responseResult;
     }
+
+    /*
+        添加或修改广告信息
+     */
+    @RequestMapping("/saveOrUpdatePromotionAd")
+    public ResponseResult saveOrUpdatePromotionAd(@RequestBody PromotionAd promotionAd) {
+        if (promotionAd.getId() == null) {
+            pas.savePromotionAd(promotionAd);
+            return new ResponseResult(true, 200, "新增广告信息成功", null);
+        } else {
+            pas.updatePromotionAd(promotionAd);
+            return new ResponseResult(true, 200, "修改广告信息成功", null);
+        }
+    }
+
+    /*
+          回显广告信息
+     */
+    @RequestMapping("/findPromotionAdById")
+    public ResponseResult findPromotionAdById(Integer id) {
+        PromotionAd promotionAd = pas.findPromotionAdById(id);
+
+        return new ResponseResult(true, 200, "查询成功", promotionAd);
+    }
 }

@@ -1,6 +1,7 @@
 package com.lagou.service;
 
 import com.lagou.domain.Course;
+import com.lagou.domain.CourseLesson;
 import com.lagou.domain.CourseSection;
 
 import java.util.List;
@@ -35,4 +36,19 @@ public interface CourseContentService {
         修改章节状态
      */
     public void updateSectionStatus(int id, int status);
+
+    /*
+        添加课时信息
+     */
+    public void saveLesson(CourseLesson courseLesson);
+
+    /*
+        修改课时信息
+     */
+    public void updateLesson(CourseLesson courseLesson);
+
+    /*
+        修改章节状态
+     */
+    public void updateLessonStatus(int id, int status);
 }

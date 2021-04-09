@@ -28,9 +28,6 @@ public class RoleController {
     @Autowired
     private MenuService menuService;
 
-    @Autowired
-    private ResourceCategoryService resourceCategoryService;
-
     /*
         查询所有角色(条件)
      */
@@ -95,6 +92,19 @@ public class RoleController {
         return new ResponseResult(true, 200, "响应成功", null);
     }
 
+    /*
+           添加或修改角色
+     */
+    @RequestMapping("/saveOrUpdateRole")
+    public ResponseResult saveOrUpdateRole(@RequestBody Role role) {
+        if (role.getId() == null) {
+            roleService.saveRole(role);
+            return  new ResponseResult(true, 200, "新增角色成功",null);
+        } else {
+            roleService.updateRole(role);
+            return  new ResponseResult(true, 200, "修改角色成功",null);
+        }
+    }
 
     /*
         删除角色

@@ -38,4 +38,9 @@ public interface UserService {
            获取用户权限，进行动态展示
      */
     public ResponseResult getUserPermissions(Integer userId);
+
+    /*
+        修改用户状态
+     */
+    void updateUserStatus(Integer id, String status);
 }

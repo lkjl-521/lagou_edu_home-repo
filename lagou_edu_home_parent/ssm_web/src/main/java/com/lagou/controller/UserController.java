@@ -106,6 +106,21 @@ public class UserController {
         } else {
             return  new ResponseResult(false, 400, "获取菜单信息失败", null);
         }
+    }
 
+    /*
+        修改用户状态
+     */
+    @RequestMapping("/updateUserStatus")
+    public ResponseResult updateUserStatus(Integer id, String status) {
+        String newStatus;
+        if ("ENABLE".equals(status)) {
+            newStatus = "DISABLE";
+        } else {
+            newStatus = "ENABLE";
+        }
+        userService.updateUserStatus(id, newStatus);
+
+        return new ResponseResult(true, 200, "状态更新成功", newStatus);
     }
 }

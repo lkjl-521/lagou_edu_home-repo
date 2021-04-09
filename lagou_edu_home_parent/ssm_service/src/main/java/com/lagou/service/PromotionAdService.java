@@ -21,4 +21,19 @@ public interface PromotionAdService {
         广告动态上下线
      */
     public void updatePromotionAdStatus(int id, int status);
+
+    /*
+        新增广告信息
+     */
+    void savePromotionAd(PromotionAd promotionAd);
+
+    /*
+        修改广告信息
+     */
+    void updatePromotionAd(PromotionAd promotionAd);
+
+    /*
+       根据id查找广告信息
+    */
+    PromotionAd findPromotionAdById(Integer id);
 }

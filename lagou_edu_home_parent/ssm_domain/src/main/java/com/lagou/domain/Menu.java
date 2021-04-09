@@ -15,7 +15,7 @@ public class Menu {
     private Integer id;
 
     //父菜单id
-    private int parentId;
+    private Integer parentId;
 
     //菜单路径
     private String href;
@@ -71,11 +71,11 @@ public class Menu {
         this.id = id;
     }
 
-    public int getParentId() {
+    public Integer getParentId() {
         return parentId;
     }
 
-    public void setParentId(int parentId) {
+    public void setParentId(Integer parentId) {
         this.parentId = parentId;
     }
 

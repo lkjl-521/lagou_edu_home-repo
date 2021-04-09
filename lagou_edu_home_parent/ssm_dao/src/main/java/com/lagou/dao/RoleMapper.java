@@ -47,6 +47,15 @@ public interface RoleMapper {
      */
     public void roleContextResource(Role_resource_relation rrr);
 
+    /*
+        添加角色信息
+     */
+    void saveRole(Role role);
+
+    /*
+        修改角色信息
+     */
+    void updateRole(Role role);
 
     /*
         删除角色

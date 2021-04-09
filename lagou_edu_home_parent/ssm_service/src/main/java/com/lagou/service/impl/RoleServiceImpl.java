@@ -79,6 +79,25 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
+    public void saveRole(Role role) {
+        Date date = new Date();
+        role.setCreatedTime(date);
+        role.setUpdatedTime(date);
+        role.setCreatedBy("system");
+        role.setUpdatedBy("system");
+
+        roleMapper.saveRole(role);
+    }
+
+    @Override
+    public void updateRole(Role role) {
+        role.setUpdatedBy("system");
+        role.setUpdatedTime(new Date());
+
+        roleMapper.updateRole(role);
+    }
+
+    @Override
     public void deleteRole(Integer roleId) {
         // 清空中间表关联关系
         roleMapper.deleteRoleContextMenu(roleId);

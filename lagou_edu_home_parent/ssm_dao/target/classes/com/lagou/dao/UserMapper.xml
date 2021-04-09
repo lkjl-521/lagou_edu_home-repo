@@ -68,4 +68,9 @@
             #{item}
         </foreach>
     </select>
+
+    <!--  修改用户状态  -->
+    <update id="updateUserStatus" parameterType="user">
+        update user set status = #{status}, update_time = #{updateTime} where id = #{id};
+    </update>
 </mapper>

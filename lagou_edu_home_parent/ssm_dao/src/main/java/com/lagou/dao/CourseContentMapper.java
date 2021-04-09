@@ -1,6 +1,7 @@
 package com.lagou.dao;
 
 import com.lagou.domain.Course;
+import com.lagou.domain.CourseLesson;
 import com.lagou.domain.CourseSection;
 
 import java.util.List;
@@ -35,4 +36,19 @@ public interface CourseContentMapper {
         修改章节状态
      */
     public void updateSectionStatus(CourseSection courseSection);
+
+    /*
+        添加课时信息
+     */
+    public void saveLesson(CourseLesson courseLesson);
+
+    /*
+        修改课时信息
+     */
+    public void updateLesson(CourseLesson courseLesson);
+
+    /*
+        修改章节状态
+     */
+    public void updateLessonStatus(CourseLesson courseLesson);
 }

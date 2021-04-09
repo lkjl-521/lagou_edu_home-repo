@@ -92,4 +92,14 @@ public class UserServiceImpl implements UserService {
 
         return new ResponseResult(true, 200, "获取用户权限信息成功", map);
     }
+
+    @Override
+    public void updateUserStatus(Integer id, String status) {
+        User user = new User();
+        user.setId(id);
+        user.setStatus(status);
+        user.setUpdateTime(new Date());
+
+        userMapper.updateUserStatus(user);
+    }
 }

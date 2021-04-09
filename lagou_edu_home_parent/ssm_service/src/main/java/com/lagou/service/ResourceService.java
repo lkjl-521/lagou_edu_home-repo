@@ -16,4 +16,19 @@ public interface ResourceService {
         资源分类和多条件查询
     */
     public PageInfo<Resource> findAllResourceByPage(ResourceVO resourceVO);
+
+    /*
+        添加资源
+     */
+    void saveResource(Resource resource);
+
+    /*
+        修改资源
+     */
+    void updateResource(Resource resource);
+
+    /*
+        删除资源
+     */
+    void deleteResource(Integer id);
 }
