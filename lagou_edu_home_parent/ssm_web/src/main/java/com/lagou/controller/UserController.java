@@ -94,9 +94,11 @@ public class UserController {
 
         // 1. 获取请求头中的token
         String headerToken = request.getHeader("Authorization");
+        System.out.println("Authorization:" + headerToken);
 
         // 2. 获取session中的token
         String sessionToken = (String) request.getSession().getAttribute("access_token");
+        System.out.println("sessionToken:" + sessionToken);
         
         // 3. 判断token是否一致
         if (headerToken.equals(sessionToken)) {

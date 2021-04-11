@@ -19,4 +19,44 @@
         </dependency>
     </dependencies>
 
+    <!--  动态配置环境  -->
+    <profiles>
+        <!--  profile: 配置环境 -->
+        <profile>
+            <id>dev</id>
+            <properties>
+                <!-- 开发环境 -->
+                <env>development</env>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <!-- 正式环境 -->
+                <env>product</env>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <finalName>web</finalName>
+        <filters>
+            <!--  动态获取上面properties标签中env标签中的值 -->
+            <!--  注意： 文件中的&等符号需要转为&amp;等xml文件中的写法-->
+            <filter>src/main/resources/filter/${env}.properties</filter>
+        </filters>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>filter/*.properties</exclude>
+                </excludes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
 </project>

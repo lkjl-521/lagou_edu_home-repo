@@ -39,7 +39,7 @@ public class MenuController {
     /*
         回显菜单信息
      */
-    @RequestMapping("/findMenuById")
+    @RequestMapping("/findMenuInfoById")
     public ResponseResult findMenuInfoById(Integer id) {
 
         Map<String, Object> map = new HashMap<>();

@@ -19,10 +19,10 @@
     <!--  引入jdbc配置文件  -->
     <context:property-placeholder location="classpath:jdbc.properties"/>
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-        <property name="driverClassName" value="${jdbc.driver}"/>
-        <property name="url" value="${jdbc.url}"/>
-        <property name="username" value="${jdbc.username}"/>
-        <property name="password" value="${jdbc.password}"/>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql:///ssm_lagou_edu?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root123456"/>
     </bean>
 
     <!--  2. sqlSessionFactory配置  -->
